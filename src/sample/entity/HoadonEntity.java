@@ -1,5 +1,6 @@
 package sample.entity;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -8,7 +9,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "hoadon", schema = "supermaketdb", catalog = "")
-public class HoadonEntity {
+public class HoadonEntity implements Serializable {
     private int maHd;
     private Date ngayTaoHd;
     private int maNv;

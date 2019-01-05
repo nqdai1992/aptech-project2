@@ -1,5 +1,6 @@
 package sample.entity;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -7,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "khachhang", schema = "supermaketdb", catalog = "")
-public class KhachhangEntity {
+public class KhachhangEntity implements Serializable {
     private int maKh;
     private String tenKh;
     private String diaChi;
