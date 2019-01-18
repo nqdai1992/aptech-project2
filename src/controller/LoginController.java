@@ -10,14 +10,18 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import sample.entity.NhanvienEntity;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -58,6 +62,14 @@ public class LoginController implements Initializable {
         for (NhanvienEntity nhanvien : resultList) {
             if(resultList.size() != 0){
                 System.out.println("login sucessfully!!!");
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                ScreenController screen = new ScreenController();
+                try {
+                    screen.init(app_stage);
+                    screen.setCurrentScreen("createBill", 679, 432);
+                } catch (Exception ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
