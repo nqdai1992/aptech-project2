@@ -18,12 +18,14 @@ import javax.persistence.Persistence;
 import sample.entity.NhanvienEntity;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *
  * @author MSI
  */
-public class LoginController implements Initializable{
+public class LoginController implements Initializable {
 
     @FXML
     private Button btnButton;
@@ -34,28 +36,30 @@ public class LoginController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-    }
-    
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("supermarket");
 
-    public void Login(ActionEvent event){
+    }
+
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("supermarket");
+    EntityManager em = emf.createEntityManager();
+    
+    NhanvienEntityJpaController ctrl = new NhanvienEntityJpaController(emf);
+
+    List<NhanvienEntity> list = new ArrayList<>();
+
+    public void Login(ActionEvent event) {
         String username = txtUsername.getText();
         String pass = txtPassword.getText();
- 
-        NhanvienEntityJpaController ctrl = new NhanvienEntityJpaController(emf);
         
-        List<NhanvienEntity> list = new ArrayList<>();
+        TypedQuery<NhanvienEntity> createQuery = em.createQuery("SELECT n FROM NhanvienEntity n WHERE n.username = :name and n.password = :pass", NhanvienEntity.class);
+        createQuery.setParameter("name", username);
+        createQuery.setParameter("pass", pass);
         
-        list = ctrl.findNhanvienEntityEntities();
-        
-        for(int i=0; i<list.size(); i++){
-            if(username == list.get(i).getUsername() && pass == list.get(i).getPassword()){
-                System.out.println(" login successfully !!!");
-            }else{
-                System.out.println("login fail");
+        List<NhanvienEntity> resultList = createQuery.getResultList();
+        for (NhanvienEntity nhanvien : resultList) {
+            if(resultList.size() != 0){
+                System.out.println("login sucessfully!!!");
             }
         }
-       
+
     }
 }
