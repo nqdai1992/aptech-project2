@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import controller.LoginController;
 
 public class Main extends Application {
     @Override
@@ -14,12 +15,13 @@ public class Main extends Application {
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root, 640, 400));
         primaryStage.show();
+        //primaryStage.getText();
     }
     
-    @FXML
-    private void startGame(Stage primaryStage) {
-        primaryStage.show();
-    }
+//    @FXML
+//    private void startGame(Stage primaryStage) {
+//        primaryStage.show();
+//    }
 
 
     public static void main(String[] args) {
