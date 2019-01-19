@@ -39,6 +39,7 @@ public class DanhmucEntityJpaController implements Serializable {
             em.getTransaction().begin();
             em.persist(danhmucEntity);
             em.getTransaction().commit();
+            System.out.println("create data successfully !!!");
         } catch (Exception ex) {
             if (findDanhmucEntity(danhmucEntity.getMa()) != null) {
                 throw new PreexistingEntityException("DanhmucEntity " + danhmucEntity + " already exists.", ex);

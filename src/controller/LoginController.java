@@ -46,9 +46,9 @@ public class LoginController implements Initializable {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("supermarket");
     EntityManager em = emf.createEntityManager();
     
-    NhanvienEntityJpaController ctrl = new NhanvienEntityJpaController(emf);
+//    NhanvienEntityJpaController ctrl = new NhanvienEntityJpaController(emf);
 
-    List<NhanvienEntity> list = new ArrayList<>();
+//    List<NhanvienEntity> list = new ArrayList<>();
 
     public void Login(ActionEvent event) {
         String username = txtUsername.getText();

@@ -8,10 +8,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="88.0" layoutY="90.0" prefHeight="43.0" prefWidth="124.0" text="Tên Danh Mục" />
-      <TextField fx:id="txtName" layoutX="232.0" layoutY="96.0" prefHeight="31.0" prefWidth="256.0" />
+      <Label layoutX="88.0" layoutY="102.0" prefHeight="43.0" prefWidth="124.0" text="Tên Danh Mục" />
+      <TextField fx:id="txtName" layoutX="232.0" layoutY="108.0" prefHeight="31.0" prefWidth="256.0" />
       <TextArea fx:id="txtDescription" layoutX="232.0" layoutY="162.0" prefHeight="127.0" prefWidth="256.0" />
       <Label layoutX="96.0" layoutY="210.0" prefHeight="31.0" prefWidth="108.0" text="Miêu Tả " />
       <Button fx:id="btnSave" layoutX="267.0" layoutY="322.0" mnemonicParsing="false" onAction="#Save" prefHeight="31.0" prefWidth="98.0" text="Save" />
+      <Label layoutX="88.0" layoutY="49.0" prefHeight="43.0" prefWidth="124.0" text="Ma" />
+      <TextField fx:id="txtMa" layoutX="232.0" layoutY="55.0" prefHeight="31.0" prefWidth="256.0" />
    </children>
 </AnchorPane>
